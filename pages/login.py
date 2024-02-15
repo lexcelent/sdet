@@ -13,8 +13,8 @@ class LoginPage:
         self.driver = driver
 
     # Locators
-    button_customer_login = '/html/body/div/div/div[2]/div/div[1]/div[1]/button'
-    button_bank_manager_login = '/html/body/div/div/div[2]/div/div[1]/div[2]/button'
+    button_customer_login = '//button[@ng-click="customer()"]'
+    button_bank_manager_login = '//button[@ng-click="manager()"]'
 
     # Getters
     def get_button_customer_login(self):
