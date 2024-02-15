@@ -24,9 +24,9 @@ class CustomerPage:
         return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.button_login)))
 
     # Actions
-    def select_user_by_value(self, value: str):
+    def select_user_by_visible_text(self, value: str):
         select = Select(self.get_select_user())
-        select.select_by_value(value)
+        select.select_by_visible_text(value)
 
     def click_button_login(self):
         self.get_button_login().click()
@@ -34,5 +34,5 @@ class CustomerPage:
     # Methods
     def select_harry_potter(self):
         with allure.step("Select Harry Potter and Click Login"):
-            self.select_user_by_value('2')
+            self.select_user_by_visible_text('Harry Potter')
             self.click_button_login()
