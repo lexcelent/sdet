@@ -1,5 +1,4 @@
 import datetime
-import csv
 import pandas as pd
 
 
@@ -25,8 +24,7 @@ class Base:
         df.to_csv(r'../test_results/transactions.csv', index=False)
 
     def prepare_for_csv(self, table):
-        """Функция для преобразования таблицы в формат, пригодный для .csv по заданию.
-        Да, сама функция немного не красивая"""
+        """Функция для преобразования таблицы в формат, пригодный для .csv по заданию"""
         new_data = []
         for i in range(0, len(table), 3):
             row = []
