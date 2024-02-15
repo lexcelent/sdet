@@ -8,11 +8,26 @@ from pages.account import AccountPage
 from pages.customer import CustomerPage
 from pages.listTx import ListTxPage
 from pages.login import LoginPage
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+
+def grid_driver():
+    selenium_grid_url = 'http://localhost:4444/wd/hub'
+
+    # capabilities = DesiredCapabilities.FIREFOX.copy()
+    # capabilities['platform'] = 'WINDOWS'
+    # capabilities['version'] = '10'
+    options = webdriver.FirefoxOptions()
+
+    selenium_grid_driver = webdriver.Remote(options=options, command_executor=selenium_grid_url)
+
+    return selenium_grid_driver
 
 
 @allure.description("Test 1")
 def test_1():
-    driver = webdriver.Firefox()
+    #driver = webdriver.Firefox()
+    driver = grid_driver()
 
     login = LoginPage(driver)
     login.authorization_customer()
